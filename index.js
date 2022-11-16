@@ -6,8 +6,6 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
-//doctorsPortal
-//appointmentList
 app.use(cors());
 app.use(express.json());
 
@@ -23,10 +21,10 @@ async function run(){
         const appointmentCollection = client.db("doctorsPortal").collection("appointmentList");
         
 
-        app.get('/appointmentList', async(req, res) => {
+        app.get('/appointmentOptions', async(req, res) => {
             const query = {};
-            const lists = await appointmentCollection.find(query).toArray();
-            res.send(lists)
+            const options = await appointmentCollection.find(query).toArray();
+            res.send(options)
         })
     }
     finally{
